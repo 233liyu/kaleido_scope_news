@@ -1,0 +1,13 @@
+.slot_tab {
+    display: flex;
+    flex-flow: column;
+    word-break: break-word;
+}
+
+.slot_tab:hover {
+    background-color: lightgray;
+}
+.vue-waterfall-easy-container .vue-waterfall-easy a.alink.img-inner-box:hover {
+    -webkit-box-shadow: 0px 0px 20px rgba(38, 0, 255, 0.582);
+    box-shadow: 0px 0px 20px rgba(38, 0, 255, 0.582);
+}
