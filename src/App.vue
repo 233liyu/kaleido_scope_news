@@ -39,7 +39,8 @@ export default {
   data() {
     return {
       imgsArr: [],
-      group: 0 // request param
+      group: 0,
+      publicPath: process.env.BASE_URL
     };
   },
   components: {
@@ -51,7 +52,7 @@ export default {
     getData() {
       // In the real environment,the backend will return a new image array based on the parameter group.
       // Here I simulate it with a stunned json file.
-      axios.get("./data.json?group=" + this.group).then(res => {
+      axios.get("/cs584vm6/data.json?group=" + this.group).then(res => {
         this.imgsArr = this.imgsArr.concat(res.data);
         this.group++;
       });
