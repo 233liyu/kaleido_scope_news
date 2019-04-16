@@ -6,9 +6,27 @@
         {{ news.author }} in
         <cite>{{ news.source }}</cite>
       </footer>
-      <fa-adn>
+
+      <b-container style="margin-top: 20px; margin-bottom:10px;">
+        <b-row align-h="center">
+          <b-col cols="2"><font-awesome-icon icon="thumbs-up" /></b-col>
+          <b-col cols="2"><font-awesome-icon icon="thumbs-down" /></b-col>
+          <b-col cols="2"><font-awesome-icon icon="heart" /></b-col>
+        </b-row>
+      </b-container>
+
       <p>{{ news.content }}</p>
       <p>{{ news.url }}</p>
+
+
+      <b-container style="margin-top: 20px; margin-bottom:10px;">
+        <b-row align-h="center">
+          <b-col cols="2"><font-awesome-icon icon="thumbs-up" /></b-col>
+          <b-col cols="2"><font-awesome-icon icon="thumbs-down" /></b-col>
+          <b-col cols="2"><font-awesome-icon icon="heart" /></b-col>
+        </b-row>
+      </b-container>
+
 
       <!-- <div class="ru">
         <div id="circle"></div>
@@ -65,13 +83,9 @@
 </template>
 
 <script>
-import Vuetify from 'vuetify';
 
 export default {
   name: "newsModal",
-  components : {
-    Vuetify
-  },
   methods: {
     showModal() {
       this.$refs.myModalRef.show();
@@ -83,7 +97,7 @@ export default {
       // We pass the ID of the button that we want to return focus to when
       // the modal has hidden
       this.$refs.myModalRef.toggle("#toggleBtn");
-      console.log(value);
+
       this.news = value;
       //   this.$refs.myModalRef.$props.title = "hahahahha";
     }

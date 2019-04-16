@@ -15,7 +15,7 @@
         srcKey="img_href"
         v-bind:imgWidth="Number(250)"
         v-bind:gap="Number(30)"
-        maxCols=4
+        v-bind:maxCols="Number(4)"
       >
         <div slot-scope="props" class="slot_tab" style>
           <div class="card-body">
@@ -59,9 +59,10 @@ export default {
       // In the real environment,the backend will return a new image array based on the parameter group.
       // Here I simulate it with a stunned json file.
       axios.get("/cs584vm6/kaleidoscope/rec/getRec?user_id=1").then(res => {
+      // axios.get("/cs584vm6/kaleidoscope/news.json").then(res => {
         var res_data = res.data.data;
-        console.log(res_data)
         var con_str = "/cs584vm6/kaleidoscope/img/";
+
         for (let i = 0; i < res_data.length; i++) {
           var element = res_data[i];
           switch (element.recAlgo) {
@@ -89,6 +90,7 @@ export default {
             default:
               break;
           }
+          // set news background img
           switch (element.source) {
             case "New York Times":
               element.img_href = con_str + "the-new-york-times-logo-featured.jpg";
