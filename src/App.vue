@@ -13,12 +13,14 @@
         linkRange="custom"
         hrefKey="url"
         srcKey="img_href"
-        v-bind:imgWidth="Number(400)"
+        v-bind:imgWidth="Number(250)"
+        v-bind:gap="Number(30)"
+        maxCols=4
       >
         <div slot-scope="props" class="slot_tab" style>
           <div class="card-body">
             <!-- <h5 class="card-title">第{{ props.index + 1 }}张图片</h5> -->
-            <h5 class="card-title">{{ props.value.title }}</h5>
+            <h5 class="card-title">{{ props.value.title }} <b-badge v-bind:variant=props.value.recAlgo_va>{{props.value.recAlgo}}</b-badge></h5>
             <p class="card-text">{{ props.value.content.substring(0, 150)}}</p>
           </div>
         </div>
@@ -50,18 +52,44 @@ export default {
   components: {
     vueWaterfallEasy,
     NavBar,
-    newsModal
+    newsModal,
   },
   methods: {
     getData() {
       // In the real environment,the backend will return a new image array based on the parameter group.
       // Here I simulate it with a stunned json file.
-      axios.get("/cs584vm6/news.json?group=" + this.group).then(res => {
-        var res_data = res.data
-        var con_str = "/cs584vm6/img/"
+      axios.get("/cs584vm6/kaleidoscope/rec/getRec?user_id=1").then(res => {
+        var res_data = res.data.data;
+        console.log(res_data)
+        var con_str = "/cs584vm6/kaleidoscope/img/";
         for (let i = 0; i < res_data.length; i++) {
           var element = res_data[i];
-          switch (element.publication) {
+          switch (element.recAlgo) {
+            // 0-随机，1-热点，2-内容相似，3-协同过滤
+            // 0-random，1-hot，2-content-similarity，3-collaborative-filtering
+            case 0:
+              element.recAlgo = 'random';
+              element.recAlgo_va = 'primary';
+              break;
+            case 1:
+              element.recAlgo = 'hot';
+              element.recAlgo_va = 'secondary';
+              
+              break;
+            case 2:
+              element.recAlgo = 'cb';
+              element.recAlgo_va = 'success';
+              
+              break;
+            case 3:
+              element.recAlgo = 'cf';
+              element.recAlgo_va = 'danger';              
+              break;
+          
+            default:
+              break;
+          }
+          switch (element.source) {
             case "New York Times":
               element.img_href = con_str + "the-new-york-times-logo-featured.jpg";
               break;
@@ -82,7 +110,7 @@ export default {
           }
           res_data[i] = element;
         }
-        this.imgsArr = this.imgsArr.concat(res.data);
+        this.imgsArr = this.imgsArr.concat(res_data);
         this.group++;
       });
     },
@@ -101,4 +129,5 @@ export default {
 
 <style>
 @import url(./assets/css/main.css);
+/* // main.styl */
 </style>

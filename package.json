@@ -11,13 +11,15 @@
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
     "bootstrap-vue": "^2.0.0-rc.15",
+    "jquery": "^3.4.0",
     "vue": "^2.6.10",
-    "vue-waterfall-easy": "^2.4.3"
+    "vue-waterfall-easy": "^2.4.3",
+    "vuetify": "^1.5.11"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.5.0",
     "@vue/cli-plugin-eslint": "^3.5.0",
-    "@vue/cli-service": "^3.5.0",
+    "@vue/cli-service": "^3.6.0",
     "@vue/eslint-config-prettier": "^4.0.1",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.8.0",

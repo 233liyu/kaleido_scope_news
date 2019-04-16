@@ -4,8 +4,9 @@
       <h3>{{ news.title }}</h3>
       <footer class="blockquote-footer">
         {{ news.author }} in
-        <cite>{{ news.publication }}</cite>
+        <cite>{{ news.source }}</cite>
       </footer>
+      <fa-adn>
       <p>{{ news.content }}</p>
       <p>{{ news.url }}</p>
 
@@ -64,8 +65,13 @@
 </template>
 
 <script>
+import Vuetify from 'vuetify';
+
 export default {
   name: "newsModal",
+  components : {
+    Vuetify
+  },
   methods: {
     showModal() {
       this.$refs.myModalRef.show();
@@ -124,4 +130,6 @@ export default {
     border-radius: 20%;
     background-color: antiquewhite;
 } */
+/* @import 'vuetify/src/stylus/main'; */
+
 </style>
