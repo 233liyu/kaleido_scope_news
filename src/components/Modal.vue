@@ -6,14 +6,7 @@
         {{ news.author }} in
         <cite>{{ news.source }}</cite>
       </footer>
-
-      <b-container style="margin-top: 20px; margin-bottom:10px;">
-        <b-row align-h="center">
-          <b-col cols="2"><font-awesome-icon icon="thumbs-up" /></b-col>
-          <b-col cols="2"><font-awesome-icon icon="thumbs-down" /></b-col>
-          <b-col cols="2"><font-awesome-icon icon="heart" /></b-col>
-        </b-row>
-      </b-container>
+      <br>
 
       <p>{{ news.content }}</p>
       <p>{{ news.url }}</p>
@@ -21,12 +14,29 @@
 
       <b-container style="margin-top: 20px; margin-bottom:10px;">
         <b-row align-h="center">
-          <b-col cols="2"><font-awesome-icon icon="thumbs-up" /></b-col>
-          <b-col cols="2"><font-awesome-icon icon="thumbs-down" /></b-col>
-          <b-col cols="2"><font-awesome-icon icon="heart" /></b-col>
+          <b-col cols="2">
+            <font-awesome-icon
+              v-bind:class="{button_click : !news.isLike, color_red : news.isLike}"
+              v-on:click="news.isLike = !news.isLike"
+              icon="thumbs-up"
+            />
+          </b-col>
+          <b-col cols="2">
+            <font-awesome-icon
+              v-bind:class="{button_click : !news.isDislike, color_red : news.isDislike}"
+              v-on:click=" news.isDislike = !news.isDislike"
+              icon="thumbs-down"
+            />
+          </b-col>
+          <b-col cols="2">
+            <font-awesome-icon
+              v-bind:class="{button_click : !news.isCollect, color_red : news.isCollect}"
+              v-on:click=" news.isCollect = !news.isCollect"
+              icon="heart"
+            />
+          </b-col>
         </b-row>
       </b-container>
-
 
       <!-- <div class="ru">
         <div id="circle"></div>
@@ -34,47 +44,6 @@
         <span class="badge badge-primary badge-pill">Primary</span>
         <span class="badge badge-primary badge-pill">Primary</span>
         <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-        <span class="badge badge-primary badge-pill">Primary</span>
-
       </div>-->
     </div>
     <b-button class="mt-3" variant="outline-danger" block @click="hideModal">Close Me</b-button>
@@ -83,7 +52,6 @@
 </template>
 
 <script>
-
 export default {
   name: "newsModal",
   methods: {
@@ -100,7 +68,8 @@ export default {
 
       this.news = value;
       //   this.$refs.myModalRef.$props.title = "hahahahha";
-    }
+    },
+    click_fn(str_c) {}
   },
   data: function() {
     return {
@@ -116,7 +85,8 @@ export default {
           "Tyrus Wong, ‘Bambi’ Artist Thwarted by Racial Bias, Dies at 106 - The New York Times",
         url: "/cs584vm6/img/og-image-logo-social.png",
         year: 2017
-      }
+      },
+
     };
   }
 };
@@ -138,12 +108,11 @@ export default {
   margin-bottom: 0.5em;
 }
 
-/* .ru{
-    width: 500px;
-    height: 500px;
-    border-radius: 20%;
-    background-color: antiquewhite;
-} */
-/* @import 'vuetify/src/stylus/main'; */
+.button_click:hover {
+  color: blueviolet;
+}
 
+.color_red {
+  color: crimson;
+}
 </style>
