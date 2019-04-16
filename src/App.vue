@@ -5,7 +5,7 @@
     <NavBar title="Kaleido Scope"></NavBar>
 
     <!-- water fall content -->
-    <div style="top:56px; bottom:0px; position:absolute; width:100%;">
+    <div style="top:56px; bottom:0px; position:absolute; width:100%; z-index:-100">
       <vue-waterfall-easy
         :imgsArr="imgsArr"
         @scrollReachBottom="getData"
