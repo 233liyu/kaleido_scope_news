@@ -81,6 +81,12 @@ export default {
           var res_data = res.data.data;
           var con_str = "/cs584vm6/img/";
 
+          this.error_alert = false;
+
+          if (res_data.length == 0) {
+            this.error_alert = true;
+          }
+
           for (let i = 0; i < res_data.length; i++) {
             var element = res_data[i];
             switch (element.recAlgo) {
