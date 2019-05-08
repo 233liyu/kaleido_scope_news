@@ -7,8 +7,9 @@
 
       <b-collapse is-nav id="nav_collapse">
         <b-navbar-nav>
-          <b-nav-item href="#">Link</b-nav-item>
-          <b-nav-item href="#" disabled>Disabled</b-nav-item>
+          <!-- <b-nav-item @click="makeToast('金晶呀', '你好可爱呀')" href="#">Link</b-nav-item> -->
+          <b-nav-item v-on:click="$emit('user_signup')">hahaha</b-nav-item>
+          <b-nav-item v-on:click="$emit('debug_change')">Debug {{debug ? 'On': 'Off'}}</b-nav-item>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
@@ -18,32 +19,69 @@
             <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
           </b-nav-form>
 
-          <b-nav-item-dropdown text="Lang" right>
+          <!-- <b-nav-item-dropdown text="Lang" right>
             <b-dropdown-item href="#">EN</b-dropdown-item>
             <b-dropdown-item href="#">ES</b-dropdown-item>
             <b-dropdown-item href="#">RU</b-dropdown-item>
             <b-dropdown-item href="#">FA</b-dropdown-item>
-          </b-nav-item-dropdown>
+          </b-nav-item-dropdown>-->
 
-          <b-nav-item-dropdown right>
-            <!-- Using button-content slot -->
+          <!-- <b-nav-item-dropdown right>
             <template slot="button-content">
               <em>User</em>
             </template>
             <b-dropdown-item href="#">Profile</b-dropdown-item>
             <b-dropdown-item href="#">Signout</b-dropdown-item>
           </b-nav-item-dropdown>
+          -->
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
   </div>
+
+
 </template>
 
 <script>
+
 export default {
   name: "NavBar",
   props: {
-    title: String
+    title: String,
+    debug: Boolean
+  },
+  data: function() {
+    return {
+      rec_tags: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    };
+  },
+  methods: {
+
+    update_tags() {
+      axios
+        // .get("/cs584vm6/kaleidoscope/rec/getRec?user_id=1")
+        .get("/cs584vm6/data.json")
+        .then(res => {
+          var res_data = res.data.data;
+          this.data.rec_tags = res_data;
+        });
+    }
   }
 };
 </script>
+
+<style>
+.tag_list_item {
+  transition: all 1s;
+  display: inline-block;
+  margin-right: 10px;
+}
+.tag_list-enter, .tag_list-leave-to
+/* .list-complete-leave-active for below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.tag_list-leave-active {
+  position: absolute;
+}
+</style>

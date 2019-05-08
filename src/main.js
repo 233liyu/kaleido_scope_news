@@ -16,9 +16,13 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
+import axios from "axios";
+
 // library.add(faCoffee)
 library.add(faThumbsUp, faThumbsDown, faHeart);
 Vue.component("font-awesome-icon", FontAwesomeIcon);
+
+Vue.prototype.$http = axios;
 
 Vue.config.productionTip = false;
 

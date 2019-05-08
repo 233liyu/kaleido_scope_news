@@ -1,92 +1,12 @@
-[
-    {
-      "src": "./logo.png",
-      "href": "https://www.baidu.com",
-      "info": "一些图片描述文字"
-    },
-    {
-      "src": "./logo.png",
-      "href": "https://www.baidu.com",
-      "info": "一些图片描述文字一些图片描述文字一些图片描述文字一些图片描述文字一些图片描述文字"
-    },
-    {
-      "src": "./logo.png",
-      "href": "https://www.baidu.com",
-      "info": "一些图片描述文字"
-    },
-    {
-        "src": "./logo.png",
-        "href": "https://www.baidu.com",
-        "info": "一些图片描述文字"
-      },
-      {
-        "src": "./logo.png",
-        "href": "https://www.baidu.com",
-        "info": "一些图片描述文字"
-      },
-      {
-        "src": "./logo.png",
-        "href": "https://www.baidu.com",
-        "info": "一些图片描述文字"
-      },
-      {
-        "src": "./logo.png",
-        "href": "https://www.baidu.com",
-        "info": "一些图片描述文字"
-      },
-      {
-        "src": "./logo.png",
-        "href": "https://www.baidu.com",
-        "info": "一些图片描述文字"
-      },
-      {
-        "src": "./logo.png",
-        "href": "https://www.baidu.com",
-        "info": "一些图片描述文字"
-      },
-      {
-        "src": "./logo.png",
-        "href": "https://www.baidu.com",
-        "info": "一些图片描述文字"
-      },
-      {
-        "src": "./logo.png",
-        "href": "https://www.baidu.com",
-        "info": "一些图片描述文字"
-      },
-      {
-        "src": "./logo.png",
-        "href": "https://www.baidu.com",
-        "info": "一些图片描述文字"
-      },
-      {
-        "src": "./logo.png",
-        "href": "https://www.baidu.com",
-        "info": "一些图片描述文字"
-      },
-      {
-        "src": "./logo.png",
-        "href": "https://www.baidu.com",
-        "info": "一些图片描述文字"
-      },
-      {
-        "src": "./logo.png",
-        "href": "https://www.baidu.com",
-        "info": "一些图片描述文字"
-      },
-      {
-        "src": "./logo.png",
-        "href": "https://www.baidu.com",
-        "info": "一些图片描述文字"
-      },
-      {
-        "src": "./logo.png",
-        "href": "https://www.baidu.com",
-        "info": "一些图片描述文字"
-      },
-      {
-        "src": "./logo.png",
-        "href": "https://www.baidu.com",
-        "info": "一些图片描述文字"
-      }
-    ]
+{
+  "code": 200,
+  "quantity": 10,
+  "data" : [
+    "NewsLetter",
+    "Popeyes",
+    "Chick-fil-A",
+    "krystal",
+    "Facebook",
+    "Weibo"
+  ]
+}
